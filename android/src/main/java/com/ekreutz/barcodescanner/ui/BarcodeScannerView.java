@@ -48,14 +48,6 @@ public class BarcodeScannerView extends ViewGroup implements CameraSource.AutoFo
     // A device should support at least one of these for scanning to be possible at all.
     private static final String[] PREFERRED_FOCUS_MODES = {Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE, Camera.Parameters.FOCUS_MODE_AUTO, Camera.Parameters.FOCUS_MODE_FIXED};
 
-    // For focusing we prefer two continuous methods first, and then finally the "auto" mode which is fired on tap.
-    // A device should support at least one of these for scanning to be possible at all.
-    private static final String[] PREFERRED_FOCUS_MODES = {
-        Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE,
-        Camera.Parameters.FOCUS_MODE_AUTO,
-        Camera.Parameters.FOCUS_MODE_FIXED
-    };
-
     // Mappings of precision modes, when using more FPS, total pixel count is a bit lower.
     private static final int[] PRECISION_WIDTH = {1600, 960};
 

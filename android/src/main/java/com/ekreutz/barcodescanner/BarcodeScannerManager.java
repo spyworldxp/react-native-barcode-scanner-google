@@ -14,7 +14,7 @@ import com.facebook.react.uimanager.annotations.ReactProp;
  * React Native ViewManager corresponding to BarcodeScannerView
  */
 
-public class BarcodeScannerManager extends ViewGroupManager<BarcodeScannerView> {
+public class BarcodeScannerManager extends SimpleViewManager<BarcodeScannerView> {
 
     private BarcodeScannerView mBarcodeScannerView;
     public static int RC_HANDLE_CAMERA_PERM = 176; // must be < 256
