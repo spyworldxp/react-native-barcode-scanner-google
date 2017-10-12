@@ -18,7 +18,7 @@ class BarcodeScanner extends Component {
     barcodeTypes: PropTypes.number, // int
     focusMode: PropTypes.number, // int
     precisionMode: PropTypes.number, // int
-    torchMode: PropTypes.number, // int
+    flashMode: PropTypes.number, // int
     ...View.propTypes
   };
 
@@ -91,7 +91,7 @@ export const FocusMode = scannerModule.FocusMode;
 // Alternatives: PRECISE, RESPONSIVE
 export const PrecisionMode = scannerModule.PrecisionMode;
 // Alternatives: OFF, TORCH
-export const TorchMode = scannerModule.TorchMode;
+export const FlashMode = scannerModule.FlashMode;
 
 export const Exception = { LOW_STORAGE: LOW_STORAGE_EXCEPTION, NOT_OPERATIONAL: NOT_YET_OPERATIONAL_EXCEPTION, NO_PLAY_SERVICES: NO_PLAY_SERVICES_EXCEPTION };
 

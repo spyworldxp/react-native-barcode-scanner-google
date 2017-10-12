@@ -271,7 +271,7 @@ public class BarcodeScannerView extends ViewGroup implements CameraSource.AutoFo
     /**
      * Set torch mode.
      * Possible values: 0 = continuous focus (if supported), 1 = tap-to-focus (if supported), 2 = fixed focus
-     * @param torchMode
+     * @param flashMode
      */
     public boolean setFlashMode(int flashMode) {
         if (flashMode < 0 || flashMode > 1) {

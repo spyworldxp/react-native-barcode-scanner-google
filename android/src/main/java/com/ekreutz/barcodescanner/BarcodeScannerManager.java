@@ -14,7 +14,7 @@ import com.facebook.react.uimanager.annotations.ReactProp;
  * React Native ViewManager corresponding to BarcodeScannerView
  */
 
-public class BarcodeScannerManager extends SimpleViewManager<BarcodeScannerView> {
+public class BarcodeScannerManager extends ViewGroupManager<BarcodeScannerView> {
 
     private BarcodeScannerView mBarcodeScannerView;
     public static int RC_HANDLE_CAMERA_PERM = 176; // must be < 256
@@ -62,9 +62,9 @@ public class BarcodeScannerManager extends SimpleViewManager<BarcodeScannerView>
 
     // Torch modes (for enabling torch mode)
     // Possible values: 0 = off, 1 = on
-    @ReactProp(name = "torchMode", defaultInt = 0)
-    public void setTorchMode(BarcodeScannerView view, int torchMode) {
-        view.setTorchMode(torchMode);
+    @ReactProp(name = "flashMode", defaultInt = 0)
+    public void setFlashhMode(BarcodeScannerView view, int flashMode) {
+        view.setFlashMode(flashMode);
     }
     
     /**

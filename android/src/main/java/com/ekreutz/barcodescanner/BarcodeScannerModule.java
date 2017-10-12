@@ -49,7 +49,7 @@ public class BarcodeScannerModule extends ReactContextBaseJavaModule implements 
                 put("BarcodeType", BarcodeFormat.REVERSE_FORMATS);
                 put("FocusMode", getFocusModes());
                 put("PrecisionMode", getPrecisionMode());
-                put("TorchMode", getTorchModes());
+                put("FlashMode", getFlashModes());
             }
         });
     }
@@ -73,7 +73,7 @@ public class BarcodeScannerModule extends ReactContextBaseJavaModule implements 
         });
     }
 
-    private static Map<String, Integer> getTorchModes() {
+    private static Map<String, Integer> getFlashModes() {
       return Collections.unmodifiableMap(new HashMap<String, Integer>() {
           {
               put("OFF", 0);
