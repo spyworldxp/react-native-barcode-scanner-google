@@ -6,7 +6,8 @@
   "author": "Emil Kreutzman",
   "license": "MIT",
   "peerDependencies": {
-    "react-native": ">= 0.25.0"
+    "react-native": ">= 0.25.0",
+    "prop-types": "^15.6.0"
   },
   "rnpm": {
     "android": {
