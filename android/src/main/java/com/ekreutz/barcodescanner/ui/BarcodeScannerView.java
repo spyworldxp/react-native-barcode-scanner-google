@@ -48,14 +48,31 @@ public class BarcodeScannerView extends ViewGroup implements CameraSource.AutoFo
     // A device should support at least one of these for scanning to be possible at all.
     private static final String[] PREFERRED_FOCUS_MODES = {Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE, Camera.Parameters.FOCUS_MODE_AUTO, Camera.Parameters.FOCUS_MODE_FIXED};
 
+    // For focusing we prefer two continuous methods first, and then finally the "auto" mode which is fired on tap.
+    // A device should support at least one of these for scanning to be possible at all.
+    private static final String[] PREFERRED_FOCUS_MODES = {
+        Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE,
+        Camera.Parameters.FOCUS_MODE_AUTO,
+        Camera.Parameters.FOCUS_MODE_FIXED
+    };
+
+    // Mappings of precision modes, when using more FPS, total pixel count is a bit lower.
+    private static final int[] PRECISION_WIDTH = {1600, 960};
+
+    private static final int[] PRECISION_HEIGHT = {900, 540};
+
+    private static final float[] PRECISION_FPS = {15.0f, 30.0f};
+
     // Enable continuous light (torch mode)
     private static final String[] FLASH_MODES = {Camera.Parameters.FLASH_MODE_OFF, Camera.Parameters.FLASH_MODE_TORCH};
+    
     private CameraSource mCameraSource;
     private CameraSourcePreview mPreview;
     private BarcodeDetector mBarcodeDetector;
     private boolean mIsPaused = true;
 
     private int mBarcodeTypes = 0; // 0 for all supported types
+    private int mPrecisionMode = 0; // 0 for precision mode
 
     public BarcodeScannerView(Context context) {
         super(context);
@@ -228,6 +245,29 @@ public class BarcodeScannerView extends ViewGroup implements CameraSource.AutoFo
         return mCameraSource != null && mCameraSource.setFocusMode(PREFERRED_FOCUS_MODES[focusMode]);
     }
 
+   /**
+     * Sets precision mode.
+     * Possible values: 0 = more precise, 1 = more FPS
+     * @param precisionMode
+    */
+    public void setPrecisionMode(int precisionMode) {
+        if (precisionMode < 0 || precisionMode > 1) {
+            precisionMode = 0;
+        }
+
+        if (mPrecisionMode == precisionMode) {
+            return;
+        }
+
+        mPrecisionMode = precisionMode;
+
+        if (mPreview != null) {
+            mPreview.stop();
+            mPreview.release();
+            start();
+        }
+    }
+
     /**
      * Set torch mode.
      * Possible values: 0 = continuous focus (if supported), 1 = tap-to-focus (if supported), 2 = fixed focus
@@ -270,6 +310,9 @@ public class BarcodeScannerView extends ViewGroup implements CameraSource.AutoFo
         // at long distances.
         mCameraSource = new CameraSource.Builder(mContext.getApplicationContext(), barcodeDetector)
                 .setFacing(CameraSource.CAMERA_FACING_BACK)
+                .setFacing(CameraSource.CAMERA_FACING_BACK)
+                .setRequestedPreviewSize(PRECISION_WIDTH[mPrecisionMode], PRECISION_HEIGHT[mPrecisionMode])
+                .setRequestedFps(PRECISION_FPS[mPrecisionMode])  
                 .setRequestedPreviewSize(1600, 900)
                 .setRequestedFps(15.0f)
                 .setPreferredFocusModes(PREFERRED_FOCUS_MODES)

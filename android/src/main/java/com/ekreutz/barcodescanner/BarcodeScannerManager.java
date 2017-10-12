@@ -53,11 +53,18 @@ public class BarcodeScannerManager extends SimpleViewManager<BarcodeScannerView>
         view.setFocusMode(focusMode);
     }
 
-    // Flash modes (for enabling torch mode)
+    // Precision modes
+    // Possible values: 0 = more precise, 1 = more responsive
+    @ReactProp(name = "precisionMode", defaultInt = 0)
+    public void setPrecisionMode(BarcodeScannerView view, int precisionMode) {
+        view.setPrecisionMode(precisionMode);
+    }
+
+    // Torch modes (for enabling torch mode)
     // Possible values: 0 = off, 1 = on
-    @ReactProp(name = "flashMode", defaultInt = 0)
-    public void setFlashMode(BarcodeScannerView view, int flashMode) {
-        view.setFlashMode(flashMode);
+    @ReactProp(name = "torchMode", defaultInt = 0)
+    public void setTorchMode(BarcodeScannerView view, int torchMode) {
+        view.setTorchMode(torchMode);
     }
     
     /**
