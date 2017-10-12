@@ -48,6 +48,8 @@ public class BarcodeScannerView extends ViewGroup implements CameraSource.AutoFo
     // A device should support at least one of these for scanning to be possible at all.
     private static final String[] PREFERRED_FOCUS_MODES = {Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE, Camera.Parameters.FOCUS_MODE_AUTO, Camera.Parameters.FOCUS_MODE_FIXED};
 
+    // Enable continuous light (torch mode)
+    private static final String[] FLASH_MODES = {Camera.Parameters.FLASH_MODE_OFF, Camera.Parameters.FLASH_MODE_TORCH};
     private CameraSource mCameraSource;
     private CameraSourcePreview mPreview;
     private BarcodeDetector mBarcodeDetector;
@@ -224,6 +226,19 @@ public class BarcodeScannerView extends ViewGroup implements CameraSource.AutoFo
         }
 
         return mCameraSource != null && mCameraSource.setFocusMode(PREFERRED_FOCUS_MODES[focusMode]);
+    }
+
+    /**
+     * Set torch mode.
+     * Possible values: 0 = continuous focus (if supported), 1 = tap-to-focus (if supported), 2 = fixed focus
+     * @param torchMode
+     */
+    public boolean setFlashMode(int flashMode) {
+        if (flashMode < 0 || flashMode > 1) {
+            flashMode = 0;
+        }
+
+       return mCameraSource != null && mCameraSource.setFlashMode(FLASH_MODES[flashMode]);
     }
 
     @Override

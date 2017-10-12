@@ -53,6 +53,13 @@ public class BarcodeScannerManager extends SimpleViewManager<BarcodeScannerView>
         view.setFocusMode(focusMode);
     }
 
+    // Flash modes (for enabling torch mode)
+    // Possible values: 0 = off, 1 = on
+    @ReactProp(name = "flashMode", defaultInt = 0)
+    public void setFlashMode(BarcodeScannerView view, int flashMode) {
+        view.setFlashMode(flashMode);
+    }
+    
     /**
      * Handle results from requestPermissions.
      * Call this method from MainActivity.java in your React Native app or implement a version of your own that checks for the camera permission.
