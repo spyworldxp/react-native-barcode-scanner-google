@@ -53,6 +53,11 @@ public class BarcodeScannerManager extends SimpleViewManager<BarcodeScannerView>
         view.setFocusMode(focusMode);
     }
 
+    @ReactProp(name = "cameraFillMode", defaultInt = 0)
+    public void setCameraFillMode(BarcodeScannerView view, int cameraFillMode) {
+        view.setCameraFillMode(cameraFillMode);
+    }
+
     // Precision modes
     // Possible values: 0 = more precise, 1 = more responsive
     @ReactProp(name = "precisionMode", defaultInt = 0)

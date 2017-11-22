@@ -237,6 +237,19 @@ public class BarcodeScannerView extends ViewGroup implements CameraSource.AutoFo
         return mCameraSource != null && mCameraSource.setFocusMode(PREFERRED_FOCUS_MODES[focusMode]);
     }
 
+    
+    /**
+     * Set camera fill mode.
+     * Possible values:
+     *   0 = camera stream will fill the entire view (possibly being cropped)
+     *   1 = camera stream will fit snugly within the view (possibly showing fat borders around)
+     */
+    public void setCameraFillMode(int fillMode) {
+        if (mPreview != null) {
+            mPreview.setFillMode(fillMode);
+        }
+    }
+
    /**
      * Sets precision mode.
      * Possible values: 0 = more precise, 1 = more FPS
@@ -276,7 +289,7 @@ public class BarcodeScannerView extends ViewGroup implements CameraSource.AutoFo
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         for (int i = 0, len = getChildCount(); i < len; i++) {
-            getChildAt(i).layout(l, t, r, b);
+            getChildAt(i).layout(0, 0, r - l, b - t);
         }
     }
 

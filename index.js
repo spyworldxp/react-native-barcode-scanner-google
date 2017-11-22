@@ -17,6 +17,7 @@ class BarcodeScanner extends Component {
 
     barcodeTypes: PropTypes.number, // int
     focusMode: PropTypes.number, // int
+    cameraFillMode: PropTypes.number, // int
     precisionMode: PropTypes.number, // int
     flashMode: PropTypes.number, // int
     ...View.propTypes
@@ -88,6 +89,8 @@ const NativeBarcodeScanner = requireNativeComponent('RCTBarcodeScannerManager', 
 export const BarcodeType = scannerModule.BarcodeType;
 // Alternatives: AUTO, TAP, FIXED. Note: focusMode TAP won't work if you place a view on top of BarcodeScanner, that catches all touch events.
 export const FocusMode = scannerModule.FocusMode;
+// Alternatives: COVER, FIT
+export const CameraFillMode = scannerModule.CameraFillMode;
 // Alternatives: PRECISE, RESPONSIVE
 export const PrecisionMode = scannerModule.PrecisionMode;
 // Alternatives: OFF, TORCH
