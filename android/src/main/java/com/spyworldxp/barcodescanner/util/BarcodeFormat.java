@@ -1,4 +1,4 @@
-package com.ekreutz.barcodescanner.util;
+package com.spyworldxp.barcodescanner.util;
 
 import com.google.android.gms.vision.barcode.Barcode;
 

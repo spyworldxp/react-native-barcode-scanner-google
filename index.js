@@ -14,7 +14,6 @@ class BarcodeScanner extends Component {
     onBarcodeRead: PropTypes.func, // Callback that fires whenever a new barcode is read
     onBarCodeRead: PropTypes.func, // alias of onBarcodeRead (for compatibility with other libraries)
     onException: PropTypes.func, // function(reason)
-
     barcodeTypes: PropTypes.number, // int
     focusMode: PropTypes.number, // int
     cameraFillMode: PropTypes.number, // int

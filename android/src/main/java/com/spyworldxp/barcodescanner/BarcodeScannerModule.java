@@ -1,10 +1,10 @@
-package com.ekreutz.barcodescanner;
+package com.spyworldxp.barcodescanner;
 
 import android.util.Log;
 
-import com.ekreutz.barcodescanner.camera.CameraSourcePreview;
-import com.ekreutz.barcodescanner.ui.BarcodeScannerView;
-import com.ekreutz.barcodescanner.util.BarcodeFormat;
+import com.spyworldxp.barcodescanner.camera.CameraSourcePreview;
+import com.spyworldxp.barcodescanner.ui.BarcodeScannerView;
+import com.spyworldxp.barcodescanner.util.BarcodeFormat;
 import com.facebook.react.bridge.LifecycleEventListener;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;

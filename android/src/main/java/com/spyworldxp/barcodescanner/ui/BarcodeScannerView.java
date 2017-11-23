@@ -1,4 +1,4 @@
-package com.ekreutz.barcodescanner.ui;
+package com.spyworldxp.barcodescanner.ui;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -14,9 +14,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 
-import com.ekreutz.barcodescanner.camera.CameraSource;
-import com.ekreutz.barcodescanner.camera.CameraSourcePreview;
-import com.ekreutz.barcodescanner.util.BarcodeFormat;
+import com.spyworldxp.barcodescanner.camera.CameraSource;
+import com.spyworldxp.barcodescanner.camera.CameraSourcePreview;
+import com.spyworldxp.barcodescanner.util.BarcodeFormat;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.WritableMap;

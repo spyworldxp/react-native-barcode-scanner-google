@@ -1,11 +1,11 @@
-package com.ekreutz.barcodescanner;
+package com.spyworldxp.barcodescanner;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 
-import com.ekreutz.barcodescanner.ui.BarcodeScannerView;
+import com.spyworldxp.barcodescanner.ui.BarcodeScannerView;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;

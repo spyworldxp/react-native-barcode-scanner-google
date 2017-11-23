@@ -1,4 +1,4 @@
-package com.ekreutz.barcodescanner;
+package com.spyworldxp.barcodescanner;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
